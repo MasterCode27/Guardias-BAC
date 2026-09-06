@@ -1,0 +1,10 @@
+{
+  "name":"Guardias · Equipo",
+  "short_name":"Guardias",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f5f6fa",
+  "theme_color":"#635bff",
+  "lang":"es-419",
+  "icons":[]
+}
