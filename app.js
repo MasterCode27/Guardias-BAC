@@ -4,7 +4,10 @@ const people=[
  {name:"Javier",carnet:"2024003",network:"javier"},
  {name:"Jonathan",carnet:"2024004",network:"jonathan"},
  {name:"Isaac",carnet:"2024005",network:"isaac"},
- {name:"Eduardo Ruiz",carnet:"2024006",network:"eruiz"},{name:"Fernando Silva",carnet:"2024007",network:"fsilva"},{name:"Gabriel Castro",carnet:"2024008",network:"gcastro"},{name:"Héctor Gutiérrez",carnet:"2024009",network:"hgutiérrez"},{name:"Iván Morales",carnet:"2024010",network:"imorales"},{name:"Kevin Rojas",carnet:"2024011",network:"krojas"},{name:"Luis Mendoza",carnet:"2024012",network:"lmendoza"},{name:"Manuel Flores",carnet:"2024013",network:"mflores"},{name:"Nicolás Vargas",carnet:"2024014",network:"nvargas"},{name:"Óscar Pineda",carnet:"2024015",network:"opineda"},{name:"Pablo Romero",carnet:"2024016",network:"promero"},{name:"Ricardo Zamora",carnet:"2024017",network:"rzamora"},{name:"Samuel Reyes",carnet:"2024018",network:"sreyes"},{name:"Luis García",carnet:"2024019",network:"lgarcia"},{name:"Carlos Mendoza",carnet:"2024020",network:"cmendoza"}
+ {name:"Eduardo Ruiz",carnet:"2024006",network:"eruiz"},{name:"Fernando Silva",carnet:"2024007",network:"fsilva"},{name:"Gabriel Castro",carnet:"2024008",network:"gcastro"},{name:"Héctor Gutiérrez",carnet:"2024009",network:"hgutiérrez"},{name:"Iván Morales",carnet:"2024010",network:"imorales"},{name:"Kevin Rojas",carnet:"2024011",network:"krojas"},{name:"Luis Mendoza",carnet:"2024012",network:"lmendoza"},{name:"Manuel Flores",carnet:"2024013",network:"mflores"},{name:"Nicolás Vargas",carnet:"2024014",network:"nvargas"},{name:"Óscar Pineda",carnet:"2024015",network:"opineda"},{name:"Pablo Romero",carnet:"2024016",network:"promero"},{name:"Ricardo Zamora",carnet:"2024017",network:"rzamora"},{name:"Samuel Reyes",carnet:"2024018",network:"sreyes"},{name:"Luis García",carnet:"2024019",network:"lgarcia"},{name:"Carlos Mendoza",carnet:"2024020",network:"cmendoza"},
+ {id:9,name:"Jairo",carnet:"2024021",network:"jairo",admin:false},
+ {id:10,name:"Sol",carnet:"2024022",network:"sol",admin:false},
+ {id:11,name:"Jesús",carnet:"2024023",network:"jesus",admin:false}
 ];
 const DEFAULT_START="2026-08-31";
 let startIndex=0,startDate=new Date(DEFAULT_START+"T00:00:00"),viewDate=new Date(new Date().getFullYear(),new Date().getMonth(),1),currentUser=null;
