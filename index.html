@@ -17,13 +17,36 @@
   <div class="login-card">
     <div class="login-brand"><div class="brandmark">G</div><div><b>Guardias</b><span data-i18n="brandTeamManagement">Gestión de equipo</span></div></div>
     <div class="login-copy"><span class="eyebrow" data-i18n="secureAccess">Acceso seguro</span><h1 data-i18n="welcome">Bienvenido de nuevo</h1><p data-i18n="loginDescription">Ingresa tus datos para consultar tu guardia y el calendario del equipo.</p></div>
-    <form id="loginForm" autocomplete="off">
-      <label><span data-i18n="networkLabel">Usuario de red</span><input id="loginNetwork" required placeholder="Ej. rdumas" data-i18n-placeholder="networkPlaceholder" autocomplete="username"></label>
-      <label><span data-i18n="carnetLabel">Carné</span><input id="loginCarnet" required placeholder="Ej. 2024001" data-i18n-placeholder="carnetPlaceholder" autocomplete="off"></label>
-      <button class="primary full" type="submit"><span data-i18n="enter">Entrar al sistema</span> <span>→</span></button>
-      <div id="loginError" class="form-error"></div>
-    </form>
-    <div class="demo-note"><span data-i18n="demo">Demo</span> <span data-i18n="demoText">Prueba con</span> <b>rdumas</b> <span data-i18n="andCarnet">y carné</span> <b>2024001</b>.</div>
+    <div id="loginFormWrap">
+      <form id="loginForm" autocomplete="off">
+        <label><span data-i18n="networkLabel">Usuario de red</span><input id="loginNetwork" required placeholder="Ej. rdumas" data-i18n-placeholder="networkPlaceholder" autocomplete="username"></label>
+        <label><span data-i18n="passwordLabel">Contraseña</span><div class="password-field"><input id="loginPassword" required type="password" placeholder="Ingresa tu contraseña" data-i18n-placeholder="passwordPlaceholder" autocomplete="current-password"><button type="button" class="password-toggle" id="togglePassword" data-i18n="showPassword">Ver contraseña</button></div></label>
+        <div class="login-options"><label class="check-option"><input id="rememberUser" type="checkbox"><span data-i18n="rememberUser">Recordar usuario</span></label><label class="check-option"><input id="rememberPassword" type="checkbox"><span data-i18n="rememberPassword">Recordar contraseña</span></label></div>
+        <button class="primary full" type="submit"><span data-i18n="enter">Entrar al sistema</span> <span>→</span></button>
+        <div id="loginError" class="form-error"></div>
+      </form>
+      <button type="button" class="forgot-link" id="forgotPasswordBtn" data-i18n="forgotPassword">¿Olvidaste tu contraseña?</button>
+      <div class="demo-note"><span data-i18n="demo">Demo</span> <span data-i18n="demoText">Prueba con</span> <b>rdumas</b> <span>·</span> <b>Guardia2026!</b>.</div>
+    </div>
+    <section id="forgotPanel" class="forgot-panel hidden">
+      <span class="eyebrow" data-i18n="secureAccess">Acceso seguro</span>
+      <h2 data-i18n="resetTitle">Recuperar contraseña</h2>
+      <p class="muted" data-i18n="resetDescription">Escribe el correo asociado a tu cuenta para recibir un código de verificación.</p>
+      <form id="forgotForm" onsubmit="event.preventDefault();sendResetCode();">
+        <label><span data-i18n="emailLabel">Correo electrónico</span><input id="forgotEmail" required type="email" placeholder="Ej. nombre@correo.com" data-i18n-placeholder="emailPlaceholder"></label>
+        <button class="primary full" type="submit"><span data-i18n="sendCode">Enviar código</span> →</button>
+      </form>
+      <div id="forgotError" class="form-error"></div>
+      <div id="resetStep" class="hidden reset-step">
+        <label><span data-i18n="verificationCode">Código de verificación</span><input id="verificationCode" inputmode="numeric" maxlength="6" placeholder="Ingresa el código" data-i18n-placeholder="codePlaceholder"></label>
+        <label><span data-i18n="newPassword">Nueva contraseña</span><div class="password-field"><input id="newPassword" type="password" required placeholder="Crea una nueva contraseña" data-i18n-placeholder="newPasswordPlaceholder"><button type="button" class="password-toggle" id="toggleNewPassword" data-i18n="showPassword">Ver contraseña</button></div></label>
+        <label><span data-i18n="confirmPassword">Confirmar contraseña</span><div class="password-field"><input id="confirmPassword" type="password" required placeholder="Repite la nueva contraseña" data-i18n-placeholder="confirmPasswordPlaceholder"><button type="button" class="password-toggle" id="toggleConfirmPassword" data-i18n="showPassword">Ver contraseña</button></div></label>
+        <div id="demoResetCode" class="demo-note"></div>
+        <div id="resetError" class="form-error"></div>
+        <button type="button" class="primary full" onclick="finishReset()"><span data-i18n="resetPassword">Actualizar contraseña</span> →</button>
+      </div>
+      <button type="button" class="forgot-link" id="backLoginBtn" data-i18n="backToLogin">Volver al inicio de sesión</button>
+    </section>
   </div>
 </section>
 
@@ -60,7 +83,7 @@
       <div class="topbar-left"><button id="menuBtn" class="mobile-menu" aria-label="Abrir menú" data-i18n-aria="ariaOpenMenu">☰</button><div><span class="eyebrow" id="todayLabel"></span><h1 id="pageTitle">Inicio</h1></div></div>
       <div class="top-actions"><button class="icon-btn" id="notifyTop" title="Notificaciones" data-i18n-title="ariaNotifications">♧<i></i></button><div class="top-profile-wrap"><button class="user-chip" id="topAvatar" aria-label="Abrir perfil" data-i18n-aria="ariaOpenProfile">RD</button><div id="topProfilePanel" class="top-profile-panel" aria-hidden="true">
         <div class="top-profile-head"><div class="avatar large" id="topPanelAvatar">RD</div><div><b id="topPanelName">Ramsés Dumas</b><span id="topPanelRole">Administrador</span></div></div>
-        <div class="top-profile-data"><div><span data-i18n="carnet">Carné</span><b id="topPanelCarnet">2024001</b></div><div><span data-i18n="duty">Mi guardia</span><b id="topPanelDuty">—</b></div></div>
+        <div class="top-profile-data"><div><span data-i18n="duty">Mi guardia</span><b id="topPanelDuty">—</b></div></div>
         <button id="accountBtn" class="profile-link" data-i18n="viewProfile">Ver mi perfil</button>
         <div class="language-row"><span data-i18n="language">Idioma</span><div class="language-switch"><button id="langEs" class="lang-btn active" aria-label="Español">ES</button><button id="langEn" class="lang-btn" aria-label="English">EN</button></div></div>
         <button id="logoutBtn" class="profile-link logout-action" data-i18n="logout">Cerrar sesión</button>
@@ -103,7 +126,7 @@
     </section>
 
     <section id="equipo" class="page">
-      <div class="section-head"><div><span class="eyebrow" data-i18n="teamCount">20 integrantes</span><h2 data-i18n="team">Equipo</h2><p data-i18n="teamDescription">Orden actual de la rotación.</p></div><input class="search" id="search" placeholder="⌕  Buscar persona" data-i18n-placeholder="search"></div>
+      <div class="section-head"><div><span class="eyebrow" id="teamCount" data-i18n="teamCount">20 integrantes</span><h2 data-i18n="team">Equipo</h2><p data-i18n="teamDescription">Orden actual de la rotación.</p></div><input class="search" id="search" placeholder="⌕  Buscar persona" data-i18n-placeholder="search"></div>
       <div class="team-grid" id="teamGrid"></div>
     </section>
 
@@ -116,9 +139,24 @@
       <article class="card admin-table"><div class="card-head"><div><h3 data-i18n="credentials">Personas y credenciales</h3><span class="muted" data-i18n="cloudData">En producción estos datos vivirán en la base de datos cloud.</span></div><button class="secondary" id="addPerson" data-i18n="add">+ Agregar</button></div><div id="adminList"></div></article>
     </section>
 
+    <div id="personModal" class="person-modal" aria-hidden="true">
+      <div class="person-modal-card" role="dialog" aria-modal="true" aria-labelledby="personModalTitle">
+        <div class="person-modal-head"><div><span class="eyebrow" data-i18n="credentials">Personas y credenciales</span><h3 id="personModalTitle">Agregar integrante</h3></div><button class="icon-action" id="cancelPerson" type="button" aria-label="Cerrar">×</button></div>
+        <input type="hidden" id="personEditIndex" value="-1">
+        <div class="person-form-grid">
+          <label><span data-i18n="personName">Nombre completo</span><input id="personNameInput" type="text" autocomplete="name"></label>
+          <label><span data-i18n="personNetwork">Usuario de red</span><input id="personNetworkInput" type="text" autocomplete="username"></label>
+          <label><span data-i18n="personEmail">Correo de recuperación</span><input id="personEmailInput" type="email" autocomplete="email"></label>
+          <label class="full"><span data-i18n="personPassword">Contraseña</span><div class="password-field"><input id="personPasswordInput" type="password" autocomplete="new-password"><button type="button" class="password-toggle" id="togglePersonPassword" data-i18n="showPassword">Ver contraseña</button></div></label>
+          <label class="check-option full"><input id="personAdminInput" type="checkbox"><span data-i18n="personAdmin">Administrador</span></label>
+        </div>
+        <div class="person-modal-actions"><button class="secondary" id="cancelPerson2" type="button" data-i18n="cancel">Cancelar</button><button class="primary" id="savePersonAdmin" type="button" data-i18n="savePerson">Guardar integrante</button></div>
+      </div>
+    </div>
+
     <section id="account" class="page">
       <div class="section-head"><div><span class="eyebrow" data-i18n="profile">Perfil</span><h2 data-i18n="accountTitle">Mi cuenta</h2><p data-i18n="accountDescription">Datos utilizados para validar tu acceso.</p></div></div>
-      <article class="card account-card"><div class="account-avatar avatar large" id="accountAvatar"></div><h3 id="accountName"></h3><p class="muted" id="accountRole"></p><div class="account-data"><div><span data-i18n="carnet">Carné</span><b id="accountCarnet"></b></div><div><span data-i18n="networkUser">Usuario de red</span><b id="accountNetwork"></b></div></div></article>
+      <article class="card account-card"><div class="account-avatar avatar large" id="accountAvatar"></div><h3 id="accountName"></h3><p class="muted" id="accountRole"></p><div class="account-data"><div><span data-i18n="networkUser">Usuario de red</span><b id="accountNetwork"></b></div></div></article>
     </section>
   </main>
 </div>

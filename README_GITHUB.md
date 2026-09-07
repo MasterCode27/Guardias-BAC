@@ -15,7 +15,6 @@ Versión local/demo para pruebas del equipo. No requiere base de datos: usa `loc
 ### Administrador
 - Nombre: Ramsés Dumas
 - Usuario de red: `rdumas`
-- Carné: `2024001`
 - Rol: Administrador
 
 ### Integrantes

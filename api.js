@@ -14,7 +14,7 @@ const GuardiasAPI={
     return response.status===204?null:response.json();
   },
   // Authentication: validates network username + ID number and returns the canonical user record.
-  login:(network,carnet)=>GuardiasAPI.request('/auth/login',{method:'POST',body:JSON.stringify({network,carnet})}),
+  login:(network,password)=>GuardiasAPI.request('/auth/login',{method:'POST',body:JSON.stringify({network,password})}),
   // Bootstrap is the preferred first request after login. It keeps every device synchronized.
   getBootstrap:()=>GuardiasAPI.request('/bootstrap'),
   getPeople:()=>GuardiasAPI.request('/people'),
@@ -23,14 +23,16 @@ const GuardiasAPI={
   getRotation:()=>GuardiasAPI.request('/rotation'),
   saveRotation:payload=>GuardiasAPI.request('/rotation',{method:'PUT',body:JSON.stringify(payload)}),
   getNotifications:()=>GuardiasAPI.request('/notifications'),
-  saveNotification:payload=>GuardiasAPI.request('/notifications',{method:'PUT',body:JSON.stringify(payload)})
+  saveNotification:payload=>GuardiasAPI.request('/notifications',{method:'PUT',body:JSON.stringify(payload)}),
+  forgotPassword:email=>GuardiasAPI.request('/auth/forgot-password',{method:'POST',body:JSON.stringify({email})}),
+  resetPassword:(email,code,password)=>GuardiasAPI.request('/auth/reset-password',{method:'POST',body:JSON.stringify({email,code,password})})
 };
 
 /*
 Expected API contract (backend to be created next):
 GET  /bootstrap -> { user, people, rotation }
 POST /auth/login -> { user }
-GET  /people -> [ { id, name, carnet, network, role, active } ]
+GET  /people -> [ { id, name, network, role, active } ]
 POST /people -> created user
 PUT  /people/:id -> updated user
 GET  /rotation -> { startDate, startPersonId, order[] }
