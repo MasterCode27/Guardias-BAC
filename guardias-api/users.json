@@ -1,0 +1,66 @@
+[
+  {
+    "id": "u-001",
+    "name": "Ramsés Dumas",
+    "network": "rdumas",
+    "admin": true,
+    "email": "angelramses2703@gmail.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-002",
+    "name": "Fabiola",
+    "network": "fabiola",
+    "admin": false,
+    "email": "fabiola@example.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-003",
+    "name": "Javier",
+    "network": "javier",
+    "admin": false,
+    "email": "javier@example.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-004",
+    "name": "Jonathan",
+    "network": "jonathan",
+    "admin": false,
+    "email": "jonathan@example.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-005",
+    "name": "Isaac",
+    "network": "isaac",
+    "admin": false,
+    "email": "isaac@example.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-006",
+    "name": "Jairo",
+    "network": "jairo",
+    "admin": false,
+    "email": "jairo@example.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-007",
+    "name": "Sol",
+    "network": "sol",
+    "admin": false,
+    "email": "sol@example.com",
+    "password": "Guardia2026!"
+  },
+  {
+    "id": "u-008",
+    "name": "Jesús",
+    "network": "jesus",
+    "admin": false,
+    "email": "jesus@example.com",
+    "password": "Guardia2026!"
+  }
+]
