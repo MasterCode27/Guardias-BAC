@@ -65,6 +65,7 @@
         <button class="nav active" data-page="inicio"><span class="nav-icon">⌂</span><span data-i18n="home">Inicio</span></button>
         <button class="nav" data-page="calendario"><span class="nav-icon">▦</span><span data-i18n="calendar">Calendario</span></button>
         <button class="nav" data-page="equipo"><span class="nav-icon">♙</span><span data-i18n="team">Equipo</span></button>
+        <button class="nav" data-page="comentarios"><span class="nav-icon">☷</span><span data-i18n="comments">Comentarios</span></button>
         <button class="nav admin-only" data-page="admin"><span class="nav-icon">⚙</span><span data-i18n="admin">Administración</span></button>
       </nav>
     </div>
@@ -130,6 +131,23 @@
       <div class="team-grid" id="teamGrid"></div>
     </section>
 
+
+    <section id="comentarios" class="page">
+      <div class="section-head"><div><span class="eyebrow" data-i18n="commentsEyebrow">Histórico de guardias</span><h2 data-i18n="commentsTitle">Comentarios de guardia</h2><p data-i18n="commentsDescription">La persona que estuvo de guardia puede dejar lo ocurrido durante su semana. Todos pueden leer, reaccionar y responder.</p></div></div>
+      <div class="comment-filters card">
+        <label><span data-i18n="filterWeek">Fecha de la guardia</span><input id="commentDateFilter" type="date" aria-describedby="commentFilterError"></label>
+        <label><span data-i18n="filterUser">Usuario</span><select id="commentUserFilter"><option value="">Selecciona un usuario</option></select></label>
+        <div class="comment-filter-actions"><button class="primary" id="applyCommentFilters" type="button" data-i18n="applyFilter">Aplicar filtros</button><button class="secondary" id="clearCommentFilters" type="button" data-i18n="clearFilter">Limpiar filtros</button></div>
+        <div id="commentFilterError" class="form-error" role="alert"></div>
+      </div>
+      <article id="commentComposer" class="card comment-composer">
+        <div class="comment-composer-head"><div><b data-i18n="currentDuty">Guardia actual</b><span id="commentDutyPerson"></span></div><span class="pill success" data-i18n="onDuty">De guardia:</span></div>
+        <textarea id="commentInput" rows="4" data-i18n-placeholder="writeComment" placeholder="Escribe una actualización sobre tu guardia…"></textarea>
+        <div class="comment-compose-actions"><input id="commentFile" type="file" accept="image/*" hidden><button class="secondary" id="commentFileBtn" type="button">📎 <span data-i18n="attachPhoto">Subir foto o captura</span></button><span id="commentFileName" class="muted"></span><button class="primary" id="sendComment" type="button"><span data-i18n="sendComment">Publicar</span> →</button></div>
+      </article>
+      <div id="commentsList" class="comments-list"></div>
+    </section>
+
     <section id="admin" class="page">
       <div class="section-head"><div><span class="eyebrow" data-i18n="control">Control total</span><h2 data-i18n="adminTitle">Administración</h2><p data-i18n="adminDescription">Configura personas, rotación y accesos.</p></div></div>
       <div class="admin-grid">
@@ -148,7 +166,8 @@
           <label><span data-i18n="personNetwork">Usuario de red</span><input id="personNetworkInput" type="text" autocomplete="username"></label>
           <label><span data-i18n="personEmail">Correo de recuperación</span><input id="personEmailInput" type="email" autocomplete="email"></label>
           <label class="full"><span data-i18n="personPassword">Contraseña</span><div class="password-field"><input id="personPasswordInput" type="password" autocomplete="new-password"><button type="button" class="password-toggle" id="togglePersonPassword" data-i18n="showPassword">Ver contraseña</button></div></label>
-          <label class="check-option full"><input id="personAdminInput" type="checkbox"><span data-i18n="personAdmin">Administrador</span></label>
+          <label class="full"><span data-i18n="roleLabel">Rol</span><select id="personRoleInput"><option value="member" data-i18n="member">Integrante</option><option value="viewer" data-i18n="viewer">Solo lectura</option><option value="admin" data-i18n="administrator">Administrador</option></select></label>
+          <label class="check-option full"><input id="personRotationInput" type="checkbox"><span data-i18n="participatesRotation">Participa en la rotación</span></label>
         </div>
         <div class="person-modal-actions"><button class="secondary" id="cancelPerson2" type="button" data-i18n="cancel">Cancelar</button><button class="primary" id="savePersonAdmin" type="button" data-i18n="savePerson">Guardar integrante</button></div>
       </div>
@@ -160,5 +179,5 @@
     </section>
   </main>
 </div>
-<script src="api.js"></script><script src="app.js"></script>
+<script src="app.js"></script>
 </body></html>
