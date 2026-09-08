@@ -13,10 +13,6 @@ Versión web local/demo de Guardias Cloud.
 ## Modo demo
 No usa API ni base de datos. Los datos se almacenan en `localStorage`.
 
-Usuario administrador: `rdumas`
-Contraseña inicial: `Guardia2026!`
-Correo demo: `angelramses2703@gmail.com`
-
 
 ## Sesión
 La sesión de usuario se conserva al recargar la página durante un máximo de 5 minutos. Si el usuario cierra la aplicación/pestaña, la sesión de la sesión actual se elimina mediante `sessionStorage`.
