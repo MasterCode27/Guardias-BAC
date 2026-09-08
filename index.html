@@ -66,6 +66,7 @@
         <button class="nav" data-page="calendario"><span class="nav-icon">▦</span><span data-i18n="calendar">Calendario</span></button>
         <button class="nav" data-page="equipo"><span class="nav-icon">♙</span><span data-i18n="team">Equipo</span></button>
         <button class="nav admin-only" data-page="admin"><span class="nav-icon">⚙</span><span data-i18n="admin">Administración</span></button>
+        <button class="nav admin-only" data-page="pruebas"><span class="nav-icon">🧪</span><span data-i18n="tests">Pruebas</span></button>
       </nav>
     </div>
     <div class="side-bottom">
@@ -130,6 +131,28 @@
       <div class="team-grid" id="teamGrid"></div>
     </section>
 
+
+    <section id="pruebas" class="page admin-only-page">
+      <div class="section-head"><div><span class="eyebrow" data-i18n="testsEyebrow">Laboratorio</span><h2 data-i18n="testsTitle">Pruebas</h2><p data-i18n="testsDescription">Herramientas de prueba para administradores. Aquí iremos agregando funciones antes de publicarlas.</p></div></div>
+      <div class="admin-grid">
+        <article class="card test-card">
+          <h3 data-i18n="notificationTestsTitle">Pruebas de notificaciones</h3>
+          <p class="muted" data-i18n="notificationTestsText">Usa estos controles para comprobar que este dispositivo puede mostrar recordatorios.</p>
+          <div class="test-actions">
+            <button class="primary" id="testNotifyOnDuty" data-i18n="testNotifyOnDuty">Si estás de guardia</button>
+            <button class="secondary" id="testNotifyNextDuty" data-i18n="testNotifyNextDuty">Cuando se acerque tu guardia</button>
+            <button class="secondary" id="testNotifyCoworkerDuty" data-i18n="testNotifyCoworkerDuty">Esta semana le toca a un compañero</button>
+            <button class="secondary" id="testNotify10" data-i18n="testNotify10">Probar en 10 segundos</button>
+          </div>
+          <div id="testNotifyStatus" class="test-status"></div>
+        </article>
+        <article class="card test-card">
+          <h3 data-i18n="scheduledReminderTitle">Recordatorio programado</h3>
+          <p class="muted" data-i18n="scheduledReminderText">Cuando un usuario active las notificaciones, la aplicación calcula automáticamente su próxima guardia y programa el aviso según la antelación elegida.</p>
+          <div class="setting"><div><b data-i18n="scheduleStatus">Estado</b><span id="scheduledReminderStatus">—</span></div><span class="pill" id="scheduledReminderPill">—</span></div>
+        </article>
+      </div>
+    </section>
 
     <section id="admin" class="page">
       <div class="section-head"><div><span class="eyebrow" data-i18n="control">Control total</span><h2 data-i18n="adminTitle">Administración</h2><p data-i18n="adminDescription">Configura personas, rotación y accesos.</p></div></div>

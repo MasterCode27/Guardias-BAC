@@ -70,3 +70,7 @@ body.dark .empty-comments-robot h3{color:#fff}
 .install-app-btn:hover{transform:translateY(-1px);background:rgba(99,91,255,.13);}
 .install-app-btn.hidden{display:none;}
 body.dark .install-app-btn{background:rgba(130,123,255,.12);border-color:rgba(130,123,255,.3);color:#c8c4ff;}
+
+/* v16.1 · laboratorio de pruebas */
+.test-card{min-height:180px}.test-card h3{margin-top:0}.test-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.test-actions button{flex:1 1 180px}.test-status{margin-top:13px;min-height:18px;color:var(--muted);font-size:12px;font-weight:700}.setting span{display:block}.setting>div{display:flex;flex-direction:column;gap:4px}
+@media(max-width:650px){.test-actions{flex-direction:column}.test-actions button{width:100%;flex:auto}}
