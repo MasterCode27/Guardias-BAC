@@ -74,3 +74,5 @@ body.dark .install-app-btn{background:rgba(130,123,255,.12);border-color:rgba(13
 /* v16.1 · laboratorio de pruebas */
 .test-card{min-height:180px}.test-card h3{margin-top:0}.test-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.test-actions button{flex:1 1 180px}.test-status{margin-top:13px;min-height:18px;color:var(--muted);font-size:12px;font-weight:700}.setting span{display:block}.setting>div{display:flex;flex-direction:column;gap:4px}
 @media(max-width:650px){.test-actions{flex-direction:column}.test-actions button{width:100%;flex:auto}}
+.test-engine-status{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px}.test-engine-status span{font-size:.88rem;color:var(--muted)}
+.v17-event-list{display:grid;gap:12px}.v17-event-list>div{display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:1px solid var(--line)}.v17-event-list>div:last-child{border-bottom:0}.v17-event-list strong{font-size:.93rem}.v17-event-list span{font-size:.84rem;color:var(--muted);line-height:1.45}
