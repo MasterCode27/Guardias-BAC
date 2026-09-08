@@ -123,7 +123,7 @@ function renderHome(){
  }
  $('#greeting').textContent=`${t('greeting')}, ${(currentUser?.name||'').split(' ')[0]||''} 👋`;
  $('#heroRange').textContent=range(today);
- $('#weekStatus').textContent=alwaysOn?`${t('onDuty')} ${currentUser.name}`:(duty?`${t('onDuty')} ${duty.name}`:t('member'));
+ $('#weekStatus').textContent=duty?`${t('onDuty')} ${duty.name}`:(alwaysOn?t('alwaysOnDuty'):t('member'));
  $('#mainDate').textContent=alwaysOn?t('alwaysOnDuty'):(mine?tr('dateRange',{start:fmt(w.start),end:fmt(w.end)}):(personalNext?tr('dateRange',{start:fmt(personalNext.start),end:fmt(personalNext.end)}):range(today)));
  $('#mainPerson').textContent=alwaysOn?(currentUser?.name||'—'):(mine?(currentUser?.name||'—'):(personalNext?.person?.name||duty?.name||'—'));
  $('#mainAvatar').textContent=initial(alwaysOn?(currentUser?.name||''):((mine?(currentUser?.name||''):(personalNext?.person?.name||duty?.name||currentUser?.name||''))));
