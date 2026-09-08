@@ -122,11 +122,20 @@ function renderHome(){
    }
  }
  $('#greeting').textContent=`${t('greeting')}, ${(currentUser?.name||'').split(' ')[0]||''} 👋`;
+ // La tarjeta principal representa SIEMPRE la guardia de la semana actual.
+ // La única excepción es Nelson, que conserva su estado especial de siempre de guardia.
+ $('#inicio .main-status .card-head span[data-i18n="nextDuty"]').textContent=t('nextDuty');
  $('#heroRange').textContent=range(today);
  $('#weekStatus').textContent=duty?`${t('onDuty')} ${duty.name}`:(alwaysOn?t('alwaysOnDuty'):t('member'));
  $('#mainDate').textContent=alwaysOn?t('alwaysOnDuty'):(duty?tr('dateRange',{start:fmt(w.start),end:fmt(w.end)}):range(today));
  $('#mainPerson').textContent=alwaysOn?(currentUser?.name||'—'):(duty?.name||'—');
  $('#mainAvatar').textContent=initial(alwaysOn?(currentUser?.name||''):(duty?.name||''));
+ if(!alwaysOn && duty){
+   $('#inicio .main-status .card-head span[data-i18n="nextDuty"]').textContent=t('nextDuty');
+   $('#statusPill').textContent=t('active');
+   $('#statusPill').classList.add('success');
+   $('#mainCaption').textContent=t('currentDuty');
+ }
  updateDutyProgress();
  const next=weekForDate(addDays(w.start,7));
  $('#nextPersonBox').innerHTML=next.person?`<div class="avatar blue">${initial(next.person.name)}</div><div><b>${escapeHtml(next.person.name)}</b><span>${tr('dateRange',{start:fmt(next.start),end:fmt(next.end)})}</span></div><strong>${String(next.index+1).padStart(2,'0')}</strong>`:`<div class="muted">${t('noMembers')}</div>`;
